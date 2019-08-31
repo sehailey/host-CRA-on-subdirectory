@@ -1,9 +1,7 @@
 import React from 'react'
 
-import { Route, Switch, Redirect } from 'react-router-dom'
-import Items from './Items'
-import ItemDetail from './ItemDetail'
-import Home from './Home'
+import { Route, Switch } from 'react-router-dom'
+import { Items, ItemDetail, Home, NotFound } from './components'
 
 const Routes = props => {
   return (
@@ -17,10 +15,11 @@ const Routes = props => {
         render={routeProps => <Items {...routeProps} {...props} />}
       />
       <Route
+        exact
         path="/"
         render={routeProps => <Home {...routeProps} {...props} />}
       />
-      <Redirect to="/" />
+      <Route component={NotFound} />
     </Switch>
   )
 }
