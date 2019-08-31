@@ -7,16 +7,16 @@ const Routes = props => {
   return (
     <Switch>
       <Route
-        path="/items/:id"
+        path={`${process.env.PUBLIC_URL}/items/:id`}
         render={routeProps => <ItemDetail {...routeProps} {...props} />}
       />
       <Route
-        path="/items"
+        path={`${process.env.PUBLIC_URL}/items`}
         render={routeProps => <Items {...routeProps} {...props} />}
       />
       <Route
         exact
-        path="/"
+        path={`${process.env.PUBLIC_URL}/`}
         render={routeProps => <Home {...routeProps} {...props} />}
       />
       <Route component={NotFound} />
